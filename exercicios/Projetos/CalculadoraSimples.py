@@ -26,16 +26,17 @@ def potencia(x, y):
 def raiz_quadrada(x):
     return math.sqrt(x)
 
+escolha = int()
+
 while True:
-    limpa_terminal()
-    print('(0) - Sair')
-    print('(1) - Adição')
-    print('(2) - Subtração')
-    print('(3) - Multiplicação')
-    print('(4) - Divisão')
-    print('(5) - Potência')
-    print('(6) - Raiz Quadrada')
     try:
+        print('(1) - Adição')
+        print('(2) - Subtração')
+        print('(3) - Multiplicação')
+        print('(4) - Divisão')
+        print('(5) - Potência')
+        print('(6) - Raiz Quadrada')
+        print('(7) - Sair')
         escolha = int(input('Digite a Opção que deseja realizar: '))
     except ValueError:
         print('É aceito apenas Números!')
@@ -43,7 +44,7 @@ while True:
     limpa_terminal()
 
     try:
-        if escolha == 0:
+        if escolha == 7:
             break
         if escolha == 1:
             x = int(input('Digite o Primeiro Número: '))
