@@ -90,7 +90,3 @@ while True:
     except ValueError:
         print('É aceito apenas Números!')
         limpa_terminal()
-
-
-
-
