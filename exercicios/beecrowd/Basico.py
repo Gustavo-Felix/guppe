@@ -1,22 +1,20 @@
 """
-Você deve fazer um programa que leia um valor qualquer e apresente uma mensagem dizendo em
-qual dos seguintes intervalos ([0,25], (25,50], (50,75], (75,100]) este valor se encontra.
-Obviamente se o valor não estiver em nenhum destes intervalos, deverá ser impressa a mensagem “Fora de intervalo”.
-
-O símbolo ( representa "maior que". Por exemplo:
-[0,25]  indica valores entre 0 e 25.0000, inclusive eles.
-(25,50] indica valores maiores que 25 Ex: 25.00001 até o valor 50.0000000
+Leia 2 valores com uma casa decimal (x e y), que devem representar as coordenadas de um ponto em um plano.
+A seguir, determine qual o quadrante ao qual pertence o ponto,
+ou se está sobre um dos eixos cartesianos ou na origem (x = y = 0).
 """
 
-N = float(input())
+x, y = input().split()
+X = float(x)
+Y = float(y)
 
-if(0 <= N <= 25):
-    print("Intervalo [0,25]")
-elif(25 < N <= 50):
-    print("Intervalo (25,50]")
-elif(50 < N <= 75):
-    print("Intervalo (50,75]")
-elif(75 < N <= 100):
-    print("Intervalo (75,100]")
-else:
-    print("Fora de intervalo")
+if X == 0 and Y == 0:
+    print('Origem')
+elif X > 0 and Y > 0:
+    print('Q1')
+elif X < 0 and Y > 0:
+    print('Q2')
+elif X < 0 and Y < 0:
+    print('Q3')
+elif X > 0 and Y < 0:
+    print('Q4')
