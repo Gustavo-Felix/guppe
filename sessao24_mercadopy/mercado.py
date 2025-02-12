@@ -74,9 +74,26 @@ def listar_produtos() -> None:
     if len(produtos) > 0:
         print('-----------------------------')
         print('----Listagem de Pordutos-----')
+        print('-----------------------------')
         for produto in produtos:
             print(produto)
             print('----------')
+            sleep(1)
+    else:
+        print('Ainda não existe qualquer produto cadastrado!')
+    sleep(2)
+    limpa_terminal()
+    menu()
+
+def comprar_produto() -> None:
+    if len(produtos) > 0:
+        print('Informe o Código do produto desejado:')
+        print('-------------------------------------')
+        print('------- Produtos Disponiveis --------')
+        print('-------------------------------------')
+        for produto in produtos:
+            print(produto)
+            print('')
             sleep(1)
         codigo: int = int(input())
 
@@ -115,21 +132,6 @@ def listar_produtos() -> None:
     limpa_terminal()
     menu()
 
-def comprar_produto() -> None:
-    if len(produtos) > 0:
-        print('Informe o Código do produto desejado:')
-        print('-------------------------------------')
-        print('------- Produtos Disponiveis --------')
-        for produto in produtos:
-            print(produto)
-            print('')
-            sleep(1)
-    else:
-        print('Ainda não existe qualquer produto cadastrado!')
-    sleep(2)
-    limpa_terminal()
-    menu()
-
 def vizualizar_carrinho() -> None:
     if len(carrinho) > 0:
         print(f'Produtos no carrinho: ')
@@ -141,6 +143,8 @@ def vizualizar_carrinho() -> None:
                 sleep(1)
     else:
         print('Ainda não existe qualquer produto no carrinho.')
+        sleep(2)
+        menu()
 
 def fechar_pedido() -> None:
     if len(carrinho) > 0:
@@ -154,7 +158,7 @@ def fechar_pedido() -> None:
                 valor_total += dados[0].preco * dados[1]
                 print('----------')
                 sleep(1)
-        print(f'Sua fatura {formeta_float_str_moeda(valor_total)}')
+        print(f'Sua fatura é de {formeta_float_str_moeda(valor_total)}')
         print('Volte Sempre!')
         carrinho.clear()
         sleep(5)
@@ -164,7 +168,7 @@ def fechar_pedido() -> None:
     limpa_terminal()
     menu()
 
-def pega_produto_por_codigo(codigo: int) -> None:
+def pega_produto_por_codigo(codigo: int) -> Produto:
     p: Produto = None
 
     for produto in produtos:
