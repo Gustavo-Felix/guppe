@@ -12,7 +12,7 @@ def limpa_terminal():
         os.system("clear")
 
 produtos: List[Produto] = []
-carrinho: List[Dict[Produto, int]] = [] # Exemplo: Carrinho [ { [nome, preco]: quantidade }, { [nome, preco], quantidade } ]
+carrinho: List[Dict[Produto, int]] = [] # Exemplo: Carrinho [ { [codigo, nome, preco]: quantidade }, { [codigo, nome, preco]: quantidade } ]
 
 def main() -> None:
     menu()
@@ -87,9 +87,10 @@ def listar_produtos() -> None:
 
 def comprar_produto() -> None:
     if len(produtos) > 0:
-        print('Informe o Código do produto desejado:')
         print('-------------------------------------')
         print('------- Produtos Disponiveis --------')
+        print('-------------------------------------')
+        print('Informe o Código do produto desejado:')
         print('-------------------------------------')
         for produto in produtos:
             print(produto)
@@ -151,6 +152,7 @@ def fechar_pedido() -> None:
         valor_total: float = 0.0
 
         print('Produtos do carrinho')
+        print('--------------------')
         for item in carrinho:
             for dados in item.items():
                 print(dados[0])
